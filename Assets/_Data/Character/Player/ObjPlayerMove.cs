@@ -23,7 +23,7 @@ public class ObjPlayerMove : ObjMovement
         set
         {
             _isMoving = value;
-            animator.SetBool(AnimString.isMoving, _isMoving); // Cập nhật trạng thái di chuyển trong animator
+            PlayerCtrl.Instance.Animator.SetBool(AnimString.isMoving, _isMoving); // Cập nhật trạng thái di chuyển trong animator
             if (!_isMoving) // Nếu không đi bộ, cũng không thể chạy
             {
                 IsRunning = false;
@@ -40,7 +40,7 @@ public class ObjPlayerMove : ObjMovement
         set
         {
             _isRunning = value;
-            animator.SetBool(AnimString.isRunning, _isRunning); // Cập nhật trạng thái chạy trong animator
+            PlayerCtrl.Instance.Animator.SetBool(AnimString.isRunning, _isRunning); // Cập nhật trạng thái chạy trong animator
             if (_isRunning)
             {
                 IsMoving = true; // Để chạy thì cũng phải đang đi
@@ -57,7 +57,7 @@ public class ObjPlayerMove : ObjMovement
         set
         {
             if (_IsFacingRight != value)
-                model.localScale *= new Vector2(-1, 1); // Đảo chiều của nhân vật
+                PlayerCtrl.Instance.Model.localScale *= new Vector2(-1, 1); // Đảo chiều của nhân vật
             _IsFacingRight = value;
         }
     }
@@ -73,7 +73,7 @@ public class ObjPlayerMove : ObjMovement
         if (sliderValue != 0)
         {
             IsMoving = true;
-            rb.velocity = new Vector2(sliderValue * 100 * walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
+            PlayerCtrl.Instance.Rb.velocity = new Vector2(sliderValue * 100 * walkSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
             SetFacingDirection(new Vector2(sliderValue, 0));
         }
         else
@@ -87,7 +87,7 @@ public class ObjPlayerMove : ObjMovement
         if (slider.value > 0.5f || slider.value < -0.5f)
         {
             IsRunning = true;
-            rb.velocity = new Vector2(sliderValue * 100 * runSpeed * Time.fixedDeltaTime, rb.velocity.y);
+            PlayerCtrl.Instance.Rb.velocity = new Vector2(sliderValue * 100 * runSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
         }
         else
         {

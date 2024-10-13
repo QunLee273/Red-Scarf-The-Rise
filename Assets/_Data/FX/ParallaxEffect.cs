@@ -53,11 +53,8 @@ public class ParallaxEffect : GameBehaviour
     protected void LoadTarget()
     {
         if (this.targetFollow != null) return;
-        GameObject player = GameObject.Find("Player/Model");
-        if (player != null)
-        {
-            this.targetFollow = player.transform;
-            Debug.Log(transform.name + ": LoadTarget", gameObject);
-        }
+        GameObject model = GameObject.Find("Player/Model");
+        this.targetFollow = model.transform;
+        Debug.Log(transform.name + ": LoadTarget", gameObject);
     }
 }

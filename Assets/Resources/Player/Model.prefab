@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7717720932700570517}
   - component: {fileID: 6810820675657290738}
-  - component: {fileID: 289697309343905620}
-  - component: {fileID: 433378635896297315}
+  - component: {fileID: 6406678954506817713}
+  - component: {fileID: 368575237180962357}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -83,10 +83,10 @@ SpriteRenderer:
   m_Size: {x: 0.19, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &289697309343905620
+--- !u!95 &6406678954506817713
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -96,10 +96,10 @@ Animator:
   m_GameObject: {fileID: 2654571731202950877}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd4bc8f6124ed3e49a59741b91c3442b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -108,7 +108,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &433378635896297315
+--- !u!50 &368575237180962357
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -134,4 +134,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
