@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerCtrl : ObjCharacter
 {
-    [Header("PlayerCtrl")]
+    
     private static PlayerCtrl instance;
     public static PlayerCtrl Instance => instance;
 
+    [Header("PlayerCtrl")]
     [SerializeField] protected Rigidbody2D rb;
     public Rigidbody2D Rb => rb;
     [SerializeField] protected Animator animator;
@@ -28,11 +29,10 @@ public class PlayerCtrl : ObjCharacter
         this.LoadAnimator();
     }
 
-
     protected void LoadRigidbody()
     {
         if (this.rb != null) return;
-        this.rb = Model.GetComponent<Rigidbody2D>();
+        this.rb = GetComponent<Rigidbody2D>();
         Debug.Log(transform.name + ": LoadRigidbody", gameObject);
     }
 

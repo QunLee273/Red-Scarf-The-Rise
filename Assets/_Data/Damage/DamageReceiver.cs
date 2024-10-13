@@ -7,6 +7,8 @@ public abstract class DamageReceiver : GameBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected CapsuleCollider2D capsuleCollider;
+    public CapsuleCollider2D CapsuleCollider => capsuleCollider;
+
     [SerializeField] protected int hp = 1;
     [SerializeField] protected int hpMax = 2;
     [SerializeField] protected bool isDead = false;
@@ -22,6 +24,7 @@ public abstract class DamageReceiver : GameBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
+
         this.LoadCollider();
     }
 
@@ -29,7 +32,6 @@ public abstract class DamageReceiver : GameBehaviour
     {
         if (this.capsuleCollider != null) return;
         this.capsuleCollider = GetComponent<CapsuleCollider2D>();
-        this.capsuleCollider.isTrigger = true;
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 

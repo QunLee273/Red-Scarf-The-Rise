@@ -66,26 +66,16 @@ public class SliderMoving : ObjPlayerMove, IPointerDownHandler, IPointerUpHandle
 
     protected void ChangeState()
     {
-        if (slider.value <= -0.1f && slider.value >= -0.5f)
-        {
+        if (slider.value < 0f && slider.value >= -0.5f)
             img.sprite = imgHandle[3];
-        }
         else if (slider.value < -0.5f && slider.value >= slider.minValue)
-        {
             img.sprite = imgHandle[1];
-        }
-        else if (slider.value >= 0.1f && slider.value <= 0.5f)
-        {
+        else if (slider.value > 0f && slider.value <= 0.5f)
             img.sprite = imgHandle[4];
-        }
         else if (slider.value > 0.5f && slider.value <= slider.maxValue)
-        {
             img.sprite = imgHandle[2];
-        }
         else
-        {
             img.sprite = imgHandle[0];
-        }
     }
 
     protected void HandleMovement()

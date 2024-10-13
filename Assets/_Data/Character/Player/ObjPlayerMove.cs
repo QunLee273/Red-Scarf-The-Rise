@@ -66,6 +66,7 @@ public class ObjPlayerMove : ObjMovement
     {
         IsMoving = false; // Đặt trạng thái đi bộ thành false
         IsRunning = false; // Đặt trạng thái chạy thành false
+        PlayerCtrl.Instance.Rb.velocity = new Vector2(0, PlayerCtrl.Instance.Rb.velocity.y);
     }
 
     public void OnMove(float sliderValue)
@@ -73,8 +74,10 @@ public class ObjPlayerMove : ObjMovement
         if (sliderValue != 0)
         {
             IsMoving = true;
-            PlayerCtrl.Instance.Rb.velocity = new Vector2(sliderValue * 100 * walkSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
-            SetFacingDirection(new Vector2(sliderValue, 0));
+            float direction = Mathf.Sign(sliderValue); // Lấy dấu của giá trị slider
+
+            PlayerCtrl.Instance.Rb.velocity = new Vector2(direction * 100 * walkSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
+            SetFacingDirection(new Vector2(direction, 0));
         }
         else
         {
@@ -87,7 +90,9 @@ public class ObjPlayerMove : ObjMovement
         if (slider.value > 0.5f || slider.value < -0.5f)
         {
             IsRunning = true;
-            PlayerCtrl.Instance.Rb.velocity = new Vector2(sliderValue * 100 * runSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
+            float direction = Mathf.Sign(sliderValue); // Lấy dấu của giá trị slider
+
+            PlayerCtrl.Instance.Rb.velocity = new Vector2(direction * 100 * runSpeed * Time.fixedDeltaTime, PlayerCtrl.Instance.Rb.velocity.y);
         }
         else
         {
